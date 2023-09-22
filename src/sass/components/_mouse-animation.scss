@@ -1,0 +1,76 @@
+#mouse {
+    display: none;
+    
+    @include respondTo(md) {
+        border: solid black 2px;
+        height: 2.75rem;
+        width: 1.5rem;
+        border-radius: 0.75rem;
+        position: absolute;
+        left: calc(50% - 1rem);
+        display: block;
+        bottom: 4rem;
+    }
+    
+    #scrollContainer {
+        position: relative;
+        
+        &:before {
+            background-color: black;
+            position: absolute;
+            content: "";
+            display: block; 
+            height: 0.75rem;
+            width: 0.25rem;
+            border-radius: 0.5rem;
+            top: 0.5rem;
+            left: calc(50% - 2px);
+            -webkit-animation-name: drop;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
+            -webkit-animation-delay: 0s;
+            -webkit-animation-duration: 0.8s;
+            animation-name: drop;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            animation-delay: 0s;
+            animation-duration: 0.8s;
+        }
+
+        @-webkit-keyframes drop {
+            0% {
+              top: 6px;
+              opacity: 0.25;
+            }
+
+            30% {
+              top: 9px;
+              opacity: 1;
+            }
+
+            100% {
+              top: 20px;
+              opacity: 0;
+            }
+        }
+
+        @keyframes drop {
+            0% {
+              top: 6px;
+              opacity: 0.25;
+            }
+
+            30% {
+              top: 9px;
+              opacity: 1;
+            }
+
+            100% {
+              top: 20px;
+              opacity: 0;
+            }
+        }
+    }
+}

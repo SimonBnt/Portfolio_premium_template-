@@ -1,0 +1,248 @@
+.dark {
+    header {
+        background-color: #333;
+        color: mediumspringgreen;
+
+        #headerMainContentContainer {
+            #navbar {
+                background-color: #333;
+
+                li {
+                    a {
+                        color: mediumspringgreen;
+    
+                        .navbarIcons {
+                            width: 32px;
+                            filter: invert(100%);
+                        }
+
+                        .navbarTxt {
+                            @include respondTo(md) {
+                                &:hover {   
+                                    color: mediumspringgreen;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #burgerMenuMainContainer {
+                .burgerMenuImgContainer {
+                    img {
+                        filter: invert(100%);
+                    }
+                }
+            }
+        }
+
+        #burgerMenu {
+            li {
+                border-bottom: mediumspringgreen solid 1px;
+
+                a {
+                    color: mediumspringgreen;
+                }
+            }
+        }
+    }
+
+    main {
+        section {
+            color: black;
+
+            h4, strong {
+                color: mediumspringgreen !important;
+            }
+
+            .sectionTitle {
+                color: mediumspringgreen !important;
+                
+                &::after {
+                    background-color: mediumspringgreen !important;
+                }
+            }
+
+            .cta {
+                color: black;
+                background-color: mediumspringgreen;
+            }
+        }
+
+        #homeSection {
+            background-color: #444;
+
+            #homeMainContentContainer {
+                @include respondTo(md) {
+                    border: solid 8px mediumspringgreen !important;
+                }
+
+                #titleContainer {
+                    h1 {
+                        color: mediumspringgreen !important;
+                    }
+                }
+
+                #homeSpeechAndCtaContainer {
+                    h2 {
+                        color: mediumspringgreen !important;
+                    }
+    
+                    p {
+                        color: black;
+                    }
+    
+                    #homeCtaMainContainer {
+                        #homeCta {
+                            border: mediumspringgreen solid 2px !important;
+    
+                            p {
+                                color: mediumspringgreen;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #rightSidenavContainer {
+                background-color: mediumspringgreen !important;
+            }
+
+            #mouse {
+                border: solid mediumspringgreen 2px;
+                
+                #scrollContainer {
+                    &::before {
+                        background-color: mediumspringgreen;
+                    }
+                }
+            }
+        }
+
+        #aboutSection {
+            background-color: #555;
+            color: black;
+
+            h2, h3, strong {
+                color: mediumspringgreen !important;
+            }
+
+            #skillsContainer {
+                .skills {
+                    color: black !important;
+                    background-color: mediumspringgreen !important;
+                }
+            }
+
+        }
+
+        #projectsSection {
+            background-color: #444;
+        }
+
+        #contactSection {
+            background-color: #333;
+
+            .formMainContainer {
+                background-color: #444;
+                border: solid mediumspringgreen 2px !important;
+
+                .formTitle {
+                    color: mediumspringgreen;
+                }
+    
+                .formBtn {
+                    background: mediumspringgreen;
+    
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 1);
+                    }
+                }
+
+                .formInput {
+                    border: solid 2px mediumspringgreen !important;
+                }
+
+                button.formBtn {
+                    color: #444;
+                    transition: 0.6s;
+
+                    &:hover {
+                        color: white;
+                        transition: 0.6s;
+                    }
+                }
+            }
+        }
+
+        #gallery {
+            background-color: #444;
+
+            h1 {
+                color: mediumspringgreen;
+            }
+
+            .projectsGalleryMainsContainers {
+                h2 {
+                    color:mediumspringgreen;
+                }
+
+                .projectsGalleryContainers {
+                    background-color: #333;
+                    border: solid #666 2px;
+
+                    .projectsGalleryImgs {
+                        border-bottom: solid #666 2px;
+
+                        @include respondTo(md) {
+                            border: 0;
+                        }
+                    }
+
+                    .projectsGalleryCtaDescriptionContainer {
+                        color: white;
+                        
+                        .projectsGalleryCta {
+                            background-color: mediumspringgreen !important;
+                            color: #333 !important;
+
+                            border-bottom: solid #666 2px !important;
+                            border-right: solid #666 2px !important;
+                        }
+                    }
+                }
+
+                @include respondTo(md) {
+                    &.right {
+                        .projectsGalleryImgs {
+                            border-left: solid #666 2px;
+                        }
+                    }
+    
+                    &.left {
+                        .projectsGalleryImgs {
+                            border-right: solid #666 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #map {
+            border-top: mediumspringgreen solid;
+            border-bottom: mediumspringgreen solid;
+        }
+    }
+
+    footer {
+        h2, #footerName {
+            color: mediumspringgreen !important;
+        }
+        
+        #propertyContainer {
+            a {
+                color: mediumspringgreen;
+            }
+        }
+    }
+}

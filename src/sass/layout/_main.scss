@@ -1,0 +1,650 @@
+main {
+    color: #333;
+
+    section {
+        padding: 2rem 1rem;
+        line-height: 1.5rem;
+
+        .defaultMainContainer {
+            @include respondTo(md) {
+                margin: 0 8rem;
+            }
+
+            @include respondTo(lg) {
+                margin: 0 20rem;
+            }
+        }
+
+        .sectionTopContainers {
+            text-align: center;
+            margin-bottom: 4rem;
+
+            .sectionTitle {
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                position: relative;
+                margin-bottom: 3rem;
+                color: black;
+                
+                @include respondTo(sm) {
+                    font-size: 1.75rem;
+                }
+
+                @include respondTo(md) {
+                    font-size: 2rem;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #0671C4;
+                    width: 80px;
+                    height: 4px;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            p {
+                @include respondTo(sm) {
+                    font-size: 1.15rem;
+                }
+
+                @include respondTo(md) {
+                    font-size: 1.25rem;
+                }
+
+                strong {
+                    color: #0671C4;
+                }
+            }
+
+            .projectP {
+                @include respondTo(md) {
+                    margin: 0 8rem;
+                }
+            }
+        }
+    }
+
+    #homeSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100dvh;
+        background-color: #EEEEEE;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='119' height='119' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23c6c6c6' fill-opacity='0.02'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.02'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+
+        #homeContentMainContainer {
+            z-index: 1;
+            
+            #homeMainContentContainer {
+                position: relative;
+                overflow: hidden;
+                
+                @include respondTo(md) {
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+                    border: solid 8px #444;
+                    border-radius: 0.5rem;
+                    display: grid;
+                    gap: 4rem 0;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    margin-top: 4rem;
+                    height: 80%;
+                }
+
+                #homeImg {
+                    display: none;
+                    
+                    @include respondTo(md) {
+                        display: block;
+                        bottom: -40%;
+                        left: -5%;
+                        position: absolute;
+                        width: 512px;
+                        opacity: 0.85;
+                    }
+                }
+                    
+                #titleContainer {
+                    grid-column: 1/3;
+                }
+                
+                #homeSpeechAndCtaContainer {
+                    grid-column: 2;
+                    grid-row: 2;
+
+                    @include respondTo(md) {
+                        margin: 2rem;
+                    }
+
+                    #speechContainer {
+                        text-align: center;
+
+                        @include respondTo(md) {
+                            text-align: left;
+                        }
+
+                        h2 {
+                            color: #0671C4;
+                            font-size: 1.25rem;
+                        }
+
+                        p {
+                            margin: 1rem 0 2rem 0;
+                        }
+                    }
+
+                    #homeCtaMainContainer {
+                        margin-bottom: 2rem;
+                        
+                        #homeCta {
+                            border: solid #0671C4 2px;
+                            border-radius: 0.5rem;
+                            padding: 0.5rem;
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            color: #0671C4;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0 1rem;
+                            width: fit-content;
+                            margin: 0 auto;
+
+                            @include respondTo(md) {
+                                margin: inherit;
+                            }
+                    
+                            #homeCtaImg {
+                                width: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .homeContentContainers {
+                margin: 4rem 0;
+
+                @include respondTo(md) {
+                    margin: 6rem 0;
+                }
+    
+                h1 {
+                    color: #0671C4;
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    text-align: center;
+                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                    letter-spacing: 0.25rem;
+                    position: relative;
+                    width: fit-content;
+                    margin: 0 auto;
+
+                    @include respondTo(sm) {
+                        font-size: 2rem;
+                    }
+    
+                    @include respondTo(md) {
+                        font-size: 2.5rem;
+                    }
+
+                    @include respondTo(lg) {
+                        font-size: 3rem;
+                    }
+
+                    #titleImg {
+                        display: none;
+
+                        @include respondTo(md) {
+                            display: block;
+                            position: absolute;
+                            width: 124px;
+                            right: 20%;
+                            bottom: 50%;
+                            transform: translateY(50%);
+                            z-index: -1;
+                            opacity: 0.2;
+                        }
+                    }
+                }
+                
+                p {
+                    font-weight: bolder;
+                    text-align: center;
+
+                    @include respondTo(sm) {
+                        font-size: 1.25rem;
+                    }
+    
+                    @include respondTo(md) {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+    
+            #rightSidenavContainer {
+                display: none;
+    
+                @include respondTo(md) {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    bottom: 35%;
+                    background-color: white;
+                    padding: 2rem 0.5rem;
+                    border: solid black 1px;
+                    border-right: none;
+                    border-top-left-radius: 0.25rem;
+                    border-bottom-left-radius: 0.25rem;
+                }
+    
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem 0;
+    
+                    li {
+                        img {
+                            width: 24px;
+                            transition: 0.3s;
+    
+                            @include respondTo(md) {
+                                cursor: pointer;
+                                width: 36px;
+                        
+                                &:hover {
+                                    transition: 0.3s;
+                                    transform: translateY(-2px);
+                                }
+                        
+                                &:active {
+                                    transform: translateY(3px);
+                                    transform: translateX(3px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #aboutSection {
+        background-color: #f8f8f8;
+
+        #aboutSectionMainContainer {
+            @include respondTo(md) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0 4rem;
+            }
+
+            .aboutSectionContainers {
+                text-align: center;
+
+                @include respondTo(md) {
+                    text-align: inherit;
+                }
+                
+                h3 {
+                    color: black;
+                    margin: 1.5rem 0;
+                    text-transform: uppercase;
+                    position: relative;
+                    
+                    @include respondTo(sm) {
+                        font-size: 1.25rem;
+                    }
+
+                    @include respondTo(md) {
+                        margin-bottom: 3rem;
+                        font-size: 1.5rem;
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 20px;
+                        height: 2px;
+                        background-color: #444;
+                        position: absolute;
+                        left: 3rem;
+                        bottom: 50%;
+
+                        @include respondTo(sm) {
+                            display: none;
+                        }
+                    }
+                    
+                    &::before {
+                        content: "";
+                        width: 20px;
+                        height: 2px;
+                        background-color: #444;
+                        position: absolute;
+                        right: 3rem;
+                        bottom: 50%;
+
+                        @include respondTo(sm) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .bioP {
+                margin-top: 2rem;
+            }
+
+            p {
+                @include respondTo(sm) {
+                    font-size: 1.15rem;
+                }
+
+                @include respondTo(md) {
+                    font-size: 1.25rem;
+                }
+
+                strong {
+                    color: #0671C4;
+                }
+            }
+        }
+
+        #skillsMainContainer {
+            #skillsContainer {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem 2rem;
+
+                .skills {
+                    color: #444;
+                    background-color: rgb(6, 113, 196, 0.2);
+                    padding: 0.25rem;
+                    border-radius: 0.25rem;
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
+                    @include respondTo(sm) {
+                        font-size: 1.15rem;
+                    }
+
+                    @include respondTo(md) {
+                        font-size: 1.25rem;
+                    }
+                }
+                
+                .block {
+                    display: none;
+                    
+                    @include respondTo(md) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    
+    #projectsSection {
+        background-color: #ffffff;
+        
+        #projectsSectionMainContainer {
+            @include respondTo(md) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0 2rem;
+            }
+
+            .projectsMainContainers {
+                position: relative;
+                margin-bottom: 4rem;
+
+                &::after {
+                    content: "";
+                    width: 100px;
+                    height: 2px;
+                    background-color: #444;
+                    position: absolute;
+                    bottom: -20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    @include respondTo(md) {
+                        display: none;
+                    }
+                }
+
+                .projectsContainers {
+                    margin-top: 1.5rem;
+                    text-align: center;
+                
+                    img {
+                        border: #333 solid 4px ;
+                        border-radius: 0.5rem;
+                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+                        width: 75%;
+
+                        @include respondTo(md) {
+                            width: 50%;
+                        }
+                    }
+
+                    h4 {
+                        text-transform: uppercase;
+
+                        @include respondTo(sm) {
+                            font-size: 1.25rem;
+                        }
+
+                        @include respondTo(lg) {
+                            font-size: 1.35rem;
+                        }
+                    }
+
+                    .projectsDescription {
+                        @include respondTo(sm) {
+                            font-size: 1.15rem;
+                        }
+
+                        @include respondTo(lg) {
+                            font-size: 1.25rem;
+                        }
+
+                        strong {
+                            color: #0671C4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #contactSection {
+        background-color: #eee;
+
+        #contactFormContainer {
+            margin: 0 auto;
+            border: solid 2px black;            
+        }
+    }
+
+    #gallery {
+        h1 {
+            margin: 4rem 0 2rem 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-align: right;
+            color: #0671C4;
+            
+            @include respondTo(md) {
+                text-align: center;
+                margin-top: 6rem;
+                font-size: 2.5rem;
+            }
+        }
+
+        #galleryMainContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+    
+            @include respondTo(md) {
+                width: 90%;
+                margin: 4rem auto;
+                border-radius: 0.5rem;
+
+                .projectsGalleryMainsContainers.right {
+                    .projectsGalleryTitles {
+                        left: 2rem;
+                    }
+        
+                    .projectsGalleryContainers {
+                        img {
+                            grid-column: 2;
+                            grid-row: 1;
+                            margin-left: auto;
+                            object-fit: cover;
+                            box-sizing: border-box;
+                            display: block;
+                            border-top-right-radius: 0.5rem;
+                            border-bottom-right-radius: 0.5rem;
+                        }
+                        
+                        .projectsGalleryCtaDescriptionContainer {
+                            grid-column: 1;
+                            grid-row: 1;
+                        }
+                    }
+                }
+        
+                .projectsGalleryMainsContainers.left {
+                    .projectsGalleryTitles {
+                        right: 2rem;
+                    }
+        
+                    .projectsGalleryContainers {
+                        img {
+                            grid-column: 1;
+                            grid-row: 1;
+                            margin-right: auto;
+                            object-fit: cover;
+                            border-top-left-radius: 0.5rem;
+                            border-bottom-left-radius: 0.5rem;
+                        }
+                        
+                        .projectsGalleryCtaDescriptionContainer {
+                            grid-column: 2;
+                            grid-row: 1;
+                        }
+                    }
+                }
+            }
+    
+            .projectsGalleryMainsContainers {
+                position: relative;
+    
+                &:not(:last-child)::after {
+                    content: "";
+                    width: 8rem;
+                    height: 2px;
+                    background-color: #444;
+                    position: absolute;
+                    bottom: -2rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+    
+                    @include respondTo(md) {
+                        display: none;
+                    }
+                }
+    
+                .projectsGalleryTitles {
+                    margin-bottom: 0.75rem;
+                    font-size: 1.25rem;
+    
+                    @include respondTo(md) {
+                        font-size: 2rem;
+                        position: absolute;
+                        top: 2rem;
+                    }
+                }
+    
+                .projectsGalleryContainers {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem 0;
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+                    border-radius: 0.5rem;
+                    text-align: center;
+                    
+                    @include respondTo(md) {
+                        border-radius: 0.5rem;
+                        display: grid;
+                        grid-column: 1fr 1fr;
+                        align-items: center;
+                    }
+        
+                    .projectsGalleryImgs {
+                        border-top-right-radius: 0.5rem;
+                        border-top-left-radius: 0.5rem;
+                        object-fit: cover;
+                        display: block;    
+
+                        @include respondTo(md) {
+                            border-top-right-radius: 0;
+                            border-top-left-radius: 0;
+                        }
+                    }
+                    
+                    .projectsGalleryCtaDescriptionContainer {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem 0;
+
+                        .projectsGalleryDescriptions {
+                            margin-bottom: 1rem;
+                            
+                            @include respondTo(md) {
+                                font-size: 1.75rem;
+                                line-height: 3rem;
+                                margin: 0 20%;
+                            }
+    
+                            strong {
+                                color: #0671C4;
+                            }
+                        }
+
+                        .projectsGalleryCta {
+                            color: white;
+                            text-decoration: none;
+                            background-color: #0671C4;
+                            padding: 0.5rem;
+                            border-bottom: solid #333 2px;
+                            border-right: solid #333 2px;
+                            border-radius: 0.5rem;
+                            text-transform: uppercase;
+                            transition: 0.3s;
+                            margin: 0 auto 2rem auto;
+                            
+                            @include respondTo(md) {
+                                margin: 0 auto;
+
+                                &:hover {
+                                    transition: 0.3s;
+                                    color: #333;
+                                    transform: translateY(-2px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

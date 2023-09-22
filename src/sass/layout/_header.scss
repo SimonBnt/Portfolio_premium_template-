@@ -1,0 +1,122 @@
+header {
+    gap: 0 2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    color: #0671C4;
+    
+    #headerMainContentContainer {
+        padding: 1rem 1rem;
+        display: flex;
+        align-items: center;
+
+        #logo-colorModeContainer {
+            display: flex;
+            align-items: center;
+            gap: 0 1rem;
+            width: 100%;
+
+            @include respondTo(md) {
+                margin-left: 4rem;
+            }
+
+            img {
+                width: 42px;
+                height: 42px;
+                border-radius: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            #colorModeContainer {
+                display: flex;
+                gap: 0 1rem;
+                
+                .colorModeBtns {
+                    .colorModeBtnImg {
+                        width: 32px;
+                        height: 32px;
+                        transition: 0.3s;
+
+                        &:hover {
+                            cursor: pointer;
+                            transition: 0.3s;
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+
+                #darkModeBtn.noActive {
+                    display: none;
+                }
+
+                #lightModeBtn.noActive {
+                    display: none;
+                }
+            }
+        }
+    
+        #burgerMenuMainContainer {
+            text-align: right;
+
+            @include respondTo(md) {
+                display: none;
+            }
+    
+            .burgerMenuImgContainer {
+                img {
+                    width: 32px;
+
+                    @include respondTo(md) {
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+    
+            #burgerMenuCloserContainer {
+                display: none;
+            }
+        }
+
+    }
+
+    #burgerMenu {
+        display: none;
+        font-size: 0.85rem;
+        
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem 0;
+            align-items: center;
+            justify-content: right;
+            
+            li {
+                text-align: right;
+                padding: 0 1rem 1rem 0;
+                width: 100%;
+                border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
+
+                a {
+                    text-decoration: none;
+                    color: #333;
+                    transition: 0.3s;
+
+                    @include respondTo(md) {
+                        &:hover {
+                            color: #0671C4;
+                            cursor: pointer;
+                            transition: 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

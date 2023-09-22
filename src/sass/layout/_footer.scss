@@ -1,0 +1,108 @@
+footer {
+    background-color: black;
+    padding: 1rem;
+    padding-bottom: 4rem;
+    
+    @include respondTo(lg) {
+        padding: 1rem 20rem;
+    }
+    
+    #footerMainContainer {
+        color: white;
+        padding-bottom: 1rem;
+        
+        @include respondTo(lg) {
+            display: flex;
+            border-bottom: solid white 1px;
+            gap: 0 20rem;
+            margin-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #footerBioContainer {
+            #footerName {
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+                font-weight: bold;
+                color: #0671C4;
+
+                @include respondTo(sm) {
+                    font-size: 1.15rem;
+                }
+
+                @include respondTo(lg) {
+                    margin-bottom: 2rem;
+                }
+            }
+            
+            #footerBio {
+                line-height: 1.25rem;
+                margin-bottom: 1rem;
+                opacity: 0.7;
+                
+                @include respondTo(sm) {
+                    font-size: 1.15rem;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+
+        #footerSocialContainer {
+            h2 {
+                text-transform: uppercase;
+                margin-bottom: 1.5rem;
+                color: #0671C4;
+
+                @include respondTo(sm) {
+                    font-size: 1.25rem;
+                }
+
+                @include respondTo(lg) {
+                    margin-bottom: 2rem;
+                }
+            }
+            
+            ul {
+                margin-bottom: 1rem;
+                display: flex;
+                gap: 0 2rem;
+                
+                li {
+                    
+                    img {
+                        border-radius: 0.25rem;
+                        width: 24px;
+                        background: white;
+
+                        @include respondTo(lg) {
+                            width: 32px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    #propertyContainer {
+        text-align: center;
+
+        @include respondTo(sm) {
+            font-size: 1.15rem;
+        }
+
+        @include respondTo(lg) {
+            margin-bottom: 2rem;
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+
+        p {
+            color: white;
+            
+            a {
+                color: #0671C4;
+                text-decoration: none;
+            }
+        }
+    }
+}
