@@ -243,6 +243,7 @@ main {
                     border-right: none;
                     border-top-left-radius: 0.25rem;
                     border-bottom-left-radius: 0.25rem;
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
                 }
     
                 ul {
@@ -585,7 +586,6 @@ main {
                     @include respondTo(md) {
                         border-radius: 0.5rem;
                         display: grid;
-                        grid-column: 1fr 1fr;
                         align-items: center;
                     }
         

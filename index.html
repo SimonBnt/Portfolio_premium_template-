@@ -45,6 +45,7 @@
     <script src="assets/js/map.js" defer></script>
     <script src="assets/js/persistantColorMode.js" defer></script>
     <script src="assets/js/formValidation.js" defer></script>
+    <script src="assets/js/chatbot.js" defer></script>
 </head>
 <body>
     <header>
@@ -124,7 +125,6 @@
                             <img src="https://cdn.pixabay.com/photo/2023/07/19/19/14/ai-generated-8137635_960_720.png" alt="" id="titleImg">
                         </h1>
                     </div>
-
                     <div id="homeSpeechAndCtaContainer">
                         <div id="speechContainer">
                             <h2>Lorem ipsum dolor sit amet consectetur adipisicing ?</h2>
@@ -138,6 +138,26 @@
                                 <img id="homeCtaImg" src="https://cdn-icons-png.flaticon.com/128/4705/4705847.png" alt="">
                             </a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Chatbot  -->
+                
+                <div id="chatbotContainer">
+                    <div id="chatbotOpenner">
+                        <span id="chatWithMe">Chat with me</span>
+                        <div id="chatIconContainer">
+                            <img src="https://cdn-icons-png.flaticon.com/128/2076/2076218.png" alt="Chat icon" id="chatIcon" title="Click to deploy the chatbot">
+                        </div>
+                    </div>
+                    <div id="chatbotHeader">
+                        <img id="robotIcon" src="https://cdn-icons-png.flaticon.com/128/4712/4712003.png" alt="robot" class="hide">
+                        <span id="helloChat" class="hide">Hi, I'm your personal chatbot, what can I do for you ?</span>
+                        <div id="chatbotCloser" class="hide" title="Close chatbot">X</div>
+                    </div>
+                    <div id="chatContainer" class="hide">
+                        <div id="chat"></div>
+                        <input id="chatInput" type="text" placeholder="Write something here..." autocomplete="off" autofocus="true">
                     </div>
                 </div>
 
