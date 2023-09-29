@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotContainer = document.getElementById("chatbotContainer")
-    const chatbotOpenner = document.getElementById("chatbotOpenner")
+    const chatbotOpener = document.getElementById("chatbotOpener")
     const chatIconContainer = document.getElementById("chatIconContainer")
     const helloChat = document.getElementById("helloChat")
     const robotIcon = document.getElementById("robotIcon")
@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatbotCloser = document.getElementById("chatbotCloser")
     const chatInput = document.getElementById("chatInput")
 
-    chatbotOpenner.addEventListener("click", () => {
+    chatbotOpener.addEventListener("click", () => {
         chatbotContainer.classList.toggle("open")
         chatbotCloser.style.display = "block"
-        chatbotOpenner.classList.toggle("hide")
+        chatbotOpener.classList.toggle("hide")
         chatIconContainer.classList.toggle("hide")
         helloChat.classList.toggle("hide")
         robotIcon.classList.toggle("hide")
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         chatbotContainer.classList.toggle("open")
         chatbotCloser.style.display = "none"
         chatbotHeader.style.borderBottom = "none"
-        chatbotOpenner.classList.toggle("hide")
+        chatbotOpener.classList.toggle("hide")
         chatIconContainer.classList.toggle("hide")
         helloChat.classList.toggle("hide")
         robotIcon.classList.toggle("hide")
