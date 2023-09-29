@@ -48,6 +48,18 @@
         &.hide {
             display: none;
         }
+        
+        #chatWithMe {
+            display: none;
+    
+            @include respondTo(md) {
+                display: block;
+            }
+    
+            &.hide {
+                display: none;
+            }
+        }
 
         #chatIconContainer {
             display: flex;
@@ -79,28 +91,8 @@
             }
         }
     
-        #chatWithMe {
-            display: none;
-    
-            @include respondTo(md) {
-                display: block;
-            }
-    
-            &.hide {
-                display: none;
-            }
-        }
     }
-
-
-    #helloChat {
-        font-size: 0.75rem;
-        
-        &.hide {
-            display: none;
-        }
-    }
-
+    
     #chatbotHeader {
         margin-right: auto;
         display: flex;
@@ -114,6 +106,14 @@
             padding: 0.5rem;
             width: 64px;
 
+            &.hide {
+                display: none;
+            }
+        }
+
+        #helloChat {
+            font-size: 0.75rem;
+            
             &.hide {
                 display: none;
             }
@@ -180,7 +180,7 @@
             scrollbar-width: none;  /* Firefox */
         }
 
-        input { 
+        #chatInput { 
             border: solid 2px #333; 
             padding: 15px; 
             border-radius: 10px; 
