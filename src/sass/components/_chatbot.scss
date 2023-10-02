@@ -2,26 +2,25 @@
     position: fixed;
     left: 1rem;
     bottom: 4rem;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     z-index: 1000;
-
+    
     @include respondTo(md) {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
         bottom: 1rem;
         margin: 0 0 0 1rem;
     }
 
     &.open {
-        border: solid 2px #333;
         left: 0;
         right: 0;
         width: 300px;
         display: block;
-        border-bottom: solid 2px #333;
         background-color: white;
 
         @include respondTo(md) {
@@ -34,7 +33,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: solid 2px #333;
             border-radius: 0.75rem;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
             padding: 0.5rem;
@@ -105,6 +103,8 @@
         gap: 0 0.25rem;
         background-color: #0671C4;
         color: black;
+        border-top-right-radius: 0.75rem;
+        border-top-left-radius: 0.75rem;
 
         #robotIcon {
             padding: 0.5rem;
