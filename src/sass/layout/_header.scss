@@ -14,7 +14,7 @@ header {
         display: flex;
         align-items: center;
 
-        #logo-colorModeContainer {
+        #logo-colorMode-langSwitchContainer {
             display: flex;
             align-items: center;
             gap: 0 1rem;
@@ -56,6 +56,14 @@ header {
 
                 #lightModeBtn.noActive {
                     display: none;
+                }
+            }
+
+            #flagContainer {
+                img {
+                    border-radius: 0;
+                    width: 32px;
+                    height: 32px;
                 }
             }
         }
