@@ -4,6 +4,22 @@
         color: mediumspringgreen;
 
         #headerMainContentContainer {
+            #logo-colorMode-langSwitchContainer {
+                #langSwitchContainer {
+                    border: solid mediumspringgreen 2px;
+                    border-radius: 0.5rem;
+
+                    #dropDownContainer {
+                        background-color: #333;
+                        border: solid #222 2px;
+
+                        span {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
             #navbar {
                 background-color: #333;
 
