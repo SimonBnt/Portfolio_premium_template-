@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         robotIcon.classList.toggle("hide")
         chatWithMe.classList.toggle("hide")
         chatContainer.classList.toggle("hide")
-        // chatbotHeader.style.borderBottom = "solid 2px #333"
+        chatbotHeader.style.borderBottom = "solid 2px #333"
         chatInput.focus()
     })
 

@@ -107,6 +107,7 @@
                 }
                 
                 #chatbotContainer {
+                    border: none;
                     #chatbotOpener {
                         #chatIconContainer {
                             background-color: mediumspringgreen;
@@ -127,6 +128,10 @@
                                 }
                             }
                         }
+                    }
+
+                    #chatContainer {
+                        // background-color: #555;
                     }
                 }
 

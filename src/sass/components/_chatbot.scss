@@ -17,6 +17,7 @@
     }
 
     &.open {
+        border: solid 2px #333;
         left: 0;
         right: 0;
         width: 300px;
@@ -33,6 +34,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: solid 2px #333;
             border-radius: 0.75rem;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
             padding: 0.5rem;
@@ -103,8 +105,8 @@
         gap: 0 0.25rem;
         background-color: #0671C4;
         color: black;
-        border-top-right-radius: 0.75rem;
-        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.55rem;
+        border-top-left-radius: 0.55rem;
 
         #robotIcon {
             padding: 0.5rem;
