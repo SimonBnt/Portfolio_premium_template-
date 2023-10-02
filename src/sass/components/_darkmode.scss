@@ -72,48 +72,75 @@
         #homeSection {
             background-color: #444;
 
-            #homeMainContentContainer {
-                @include respondTo(md) {
-                    border: solid 8px mediumspringgreen !important;
+            #homeContentMainContainer {
+                #homeMainContentContainer {
+                    @include respondTo(md) {
+                        border: solid 8px mediumspringgreen !important;
+                    }
+    
+                    #titleContainer {
+                        h1 {
+                            color: mediumspringgreen !important;
+                        }
+                    }
+    
+                    #homeSpeechAndCtaContainer {
+                        h2 {
+                            color: mediumspringgreen !important;
+                        }
+        
+                        p {
+                            color: black;
+                        }
+        
+                        #homeCtaMainContainer {
+                            #homeCta {
+                                border: mediumspringgreen solid 2px !important;
+        
+                                p {
+                                    color: mediumspringgreen;
+                                }
+                            }
+                        }
+                    }
+    
                 }
+                
+                #chatbotContainer {
+                    #chatbotOpener {
+                        #chatIconContainer {
+                            background-color: mediumspringgreen;
+                        }
+                    }
+                    
+                    #chatbotHeader {
+                        background-color: mediumspringgreen;
+                        
+                        #chatbotCloser {
+                            background-color: mediumspringgreen;
+                            color: #333;
 
-                #titleContainer {
-                    h1 {
-                        color: mediumspringgreen !important;
-                    }
-                }
-
-                #homeSpeechAndCtaContainer {
-                    h2 {
-                        color: mediumspringgreen !important;
-                    }
-    
-                    p {
-                        color: black;
-                    }
-    
-                    #homeCtaMainContainer {
-                        #homeCta {
-                            border: mediumspringgreen solid 2px !important;
-    
-                            p {
-                                color: mediumspringgreen;
+                            @include respondTo(md) {
+                                &:hover {
+                                    background-color: #333;
+                                    color: white;
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            #rightSidenavContainer {
-                background-color: mediumspringgreen !important;
-            }
-
-            #mouse {
-                border: solid mediumspringgreen 2px;
-                
-                #scrollContainer {
-                    &::before {
-                        background-color: mediumspringgreen;
+                #rightSidenavContainer {
+                    background-color: mediumspringgreen !important;
+                }
+    
+                #mouse {
+                    border: solid mediumspringgreen 2px;
+                    
+                    #scrollContainer {
+                        &::before {
+                            background-color: mediumspringgreen;
+                        }
                     }
                 }
             }
