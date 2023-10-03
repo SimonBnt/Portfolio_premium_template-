@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +30,7 @@
 
     <!-- style sheet -->
     
-    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 
     <!-- link Leaflet -->
 
@@ -78,9 +78,9 @@
                             <img src="https://cdn-icons-png.flaticon.com/128/555/555417.png" alt="Fr flag icon" id="frFlag">
                             <span>EN</span>
                         </a>
-                        <a href="/frLangPage.html" title="Click to switch the page language to french">
-                            <img src="https://cdn-icons-png.flaticon.com/128/4060/4060248.png" alt="Fr flag icon" id="frFlag">
-                            <span>FR</span>
+                        <a href="/esLangPage.html" title="Click to switch the page language to spanish">
+                            <img src="https://cdn-icons-png.flaticon.com/128/4060/4060260.png" alt="Es flag icon" id="esFlag">
+                            <span>ES</span>
                         </a>
                         <a href="/deLangPage.html" title="Click to switch the page language to german">
                             <img src="https://cdn-icons-png.flaticon.com/128/555/555613.png" alt="German flag icon" id="deFlag">

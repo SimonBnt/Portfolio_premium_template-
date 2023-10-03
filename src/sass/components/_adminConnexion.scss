@@ -1,0 +1,75 @@
+#adminConnexionPageMain {
+    height: 80dvh;
+    
+    #adminConnexionFormMainContainer {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            margin-top: 4rem;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            color: #0671C4;
+
+            @include respondTo(sm) {
+                font-size: 1.25rem;
+            }
+
+            @include respondTo(md) {
+                font-size: 1.5rem;
+            }
+        }
+
+        #adminConnexionFormContainer {
+            border: solid 2px #333;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background-color: whitesmoke;
+            
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem 0;
+                padding: 2rem;
+                
+                .labelsInputsContainer {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem 0;
+
+                    label {
+                        font-size: 0.8rem;
+                        color: #333;
+                        opacity: 0.8;
+                        text-transform: uppercase;
+                    }
+
+                    input {
+                        border: solid 2px #333;
+                        border-radius: 0.25rem;
+                        padding: 0.5rem;
+                    }
+                }
+
+                #submitBtn {
+                    width: fit-content;
+                    margin-left: auto;
+                    background-color: #0671C4;
+                    color: #333;
+                    text-transform: uppercase;
+                    border: none;
+                    border-right: solid 3px #333;
+                    border-bottom: solid 3px #333;
+                    border-radius: 0.25rem;
+                    padding: 0.5rem;
+                }
+            }
+        }
+    }
+}

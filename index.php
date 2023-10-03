@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +30,7 @@
 
     <!-- style sheet -->
     
-    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 
     <!-- link Leaflet -->
 
@@ -74,9 +74,9 @@
                         <img id="dropDownIcon" src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="Drop down icon" title="Click to show the language drop down menu">
                     </div>
                     <div id="dropDownContainer">
-                        <a href="/index.html" title="Click to switch the page language to english">
-                            <img src="https://cdn-icons-png.flaticon.com/128/555/555417.png" alt="Fr flag icon" id="frFlag">
-                            <span>EN</span>
+                        <a href="/frLangPage.html" title="Click to switch the page language to french">
+                            <img src="https://cdn-icons-png.flaticon.com/128/4060/4060248.png" alt="Fr flag icon" id="frFlag">
+                            <span>FR</span>
                         </a>
                         <a href="/esLangPage.html" title="Click to switch the page language to spanish">
                             <img src="https://cdn-icons-png.flaticon.com/128/4060/4060260.png" alt="Es flag icon" id="esFlag">
@@ -88,6 +88,8 @@
                         </a>
                     </div>
                 </div>
+
+                <a href="adminConnexionPage.php" target="_blank">ici</a>
             </div>
             <div id="navbar">
                 <ul>
