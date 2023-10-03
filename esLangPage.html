@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,6 +47,7 @@
     <script src="assets/js/formValidation.js" defer></script>
     <script src="assets/js/chatbotOpener.js" defer></script>
     <script src="assets/js/chatbotScript.js" defer></script>
+    <script src="assets/js/languageDropDownMenu.js" defer></script>
 </head>
 <body>
     <header>
@@ -67,10 +68,25 @@
 
                 <!-- lang switch -->
 
-                <div id="flagContainer">
-                    <a href="/index.html" title="Click to switch the page langage to English">
-                        <img src="https://cdn-icons-png.flaticon.com/128/4060/4060233.png" alt="UK flag icon" id="enFlag">
-                    </a>
+                <div id="langSwitchContainer">
+                    <div id="languageIconContainer">
+                        <img src="https://cdn-icons-png.flaticon.com/128/5403/5403606.png" alt="Language icon" id="languageIcon" title="Language choice">
+                        <img id="dropDownIcon" src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="Drop down icon" title="Click to show the language drop down menu">
+                    </div>
+                    <div id="dropDownContainer">
+                        <a href="/index.html" title="Click to switch the page language to english">
+                            <img src="https://cdn-icons-png.flaticon.com/128/555/555417.png" alt="Fr flag icon" id="frFlag">
+                            <span>EN</span>
+                        </a>
+                        <a href="/frLangPage.html" title="Click to switch the page language to french">
+                            <img src="https://cdn-icons-png.flaticon.com/128/4060/4060248.png" alt="Fr flag icon" id="frFlag">
+                            <span>FR</span>
+                        </a>
+                        <a href="/deLangPage.html" title="Click to switch the page language to german">
+                            <img src="https://cdn-icons-png.flaticon.com/128/555/555613.png" alt="German flag icon" id="deFlag">
+                            <span>DE</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div id="navbar">
