@@ -3,20 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropDownContainer = document.getElementById("dropDownContainer")
 
     dropDownIcon.addEventListener("click", () => {
-        openLanguageDropDownMenu()
+        if (!dropDownContainer.classList.contains("open")) {
+            openLanguageDropDownMenu()
+        } else {
+            closeLanguageDropDownMenu()
+        }
     })
 
-    document.addEventListener("click", (event) => {
-        if (dropDownContainer.classList.contains("open") && !dropDownContainer.contains(event.target)) {
+    document.addEventListener("click", (e) => {
+        if (!dropDownContainer.contains(e.target) && !dropDownIcon.contains(e.target)) {
             closeLanguageDropDownMenu()
         }
     })
 
     function openLanguageDropDownMenu() {
-        dropDownContainer.classList.toggle("open")
+        dropDownContainer.classList.add("open")
     }
-    
-    // function closeLanguageDropDownMenu() {
-    //     dropDownContainer.classList.remove("open")
-    // }
+
+    function closeLanguageDropDownMenu() {
+        dropDownContainer.classList.remove("open")
+    }
 })
