@@ -1,35 +1,9 @@
-<?php
-    session_start();
-
-    $_SESSION['AdminName']= $tab[0]['login'];
-
-    if (isset($_POST['submit'])) {
-        if (empty($_POST['login']) || ($_POST['password']));
-        try {
-            $pdo = new PDO('mysql:host=localhost;dbname=adminConnexion', 'root', 'root');
-        } catch (PDOException $e) {
-            echo "Error : " . $e->getMessage();
-        }
-
-        $res = $pdo->prepare("SELECT * FROM admin WHERE login=? and password=?");
-        $res->setFetchMode(PDO::FETCH_ASSOC);
-        $res->execute(array($_POST['login'], md5($_POST['password'])));
-        $tab = $res->fetchAll();
-        
-        if (count($tab) == 0) {
-        } else {
-            $_SESSION['connected'] = true;
-            header("location:adminPage.php");
-        }
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin connexion</title>
+    <title>Admin connection</title>
 
      <!-- google font -->
 
@@ -56,6 +30,7 @@
  
      <script src="assets/js/burgermenu.js" defer></script>
      <script src="assets/js/persistantColorMode.js" defer></script>
+     <script src="assets/js/adminLoginFormShowHidePassword.js" defer></script>
 </head>
 <body>
     <header>
@@ -122,24 +97,41 @@
             </ul>
         </div>
     </header>
-    <main id="adminConnexionPageMain">
-        <div id="adminConnexionFormMainContainer">
-            <h1>administrator page connexion</h1>
-            <div id="adminConnexionFormContainer">
-                <form action="">
+
+    <main id="adminConnectionPageMain">
+        <div id="adminConnectionFormMainContainer">
+            <h1>administrator page connection</h1>
+            <div id="adminConnectionFormContainer">
+
+            <!-- Admin page login form -->
+
+                <form action="./assets/inc/adminLoginFormProcess.php" method="POST">
                     <div class="labelsInputsContainer">
-                        <label for="name">name</label>
-                        <input name="name" type="text" placeholder="Your name..." required>
+                        <label for="id">id</label>
+                        <div class="inputContainers">
+                            <span class="itemIcon material-symbols-outlined">person</span>
+                            <input name="id" type="text" placeholder="Your id..." aria-describedby="idError idValidation" required>
+                            <div id="idValidation" aria-live="polite"></div>
+                            <div id="idError" aria-live="polite"></div>
+                        </div>
                     </div>
                     <div class="labelsInputsContainer">
                         <label for="password">password</label>
-                        <input name="password" type="password" placeholder="Your password..." required>
+                        <div class="inputContainers">
+                            <span class="itemIcon material-symbols-outlined">lock</span>
+                            <input id="passwordInput" name="password" type="password" placeholder="Your password..." aria-describedby="passwordError passwordValidation" required>
+                            <span class="material-symbols-outlined" id="hideIcon">visibility_off</span>
+                            <span class="material-symbols-outlined" id="showIcon">visibility</span>
+                            <div id="passwordError" aria-live="polite"></div>
+                            <div id="passwordValidation" aria-live="polite"></div>
+                        </div>
                     </div>
                     <button id="submitBtn" type="submit" title="Click to login">submit</button>
                 </form>
             </div>
         </div>
     </main>
+
     <footer>
         <div id="footerMainContainer">
             <div id="footerBioContainer">

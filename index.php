@@ -89,7 +89,8 @@
                     </div>
                 </div>
 
-                <a href="adminConnexionPage.php" target="_blank">ici</a>
+                <a href="adminConnectionPage.php" target="_blank">ici connection</a>
+                <a href="adminPage.php" target="_blank">ici admin page</a>
             </div>
             <div id="navbar">
                 <ul>

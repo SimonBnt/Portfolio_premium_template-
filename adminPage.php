@@ -1,10 +1,17 @@
 <?php
+    session_start();
 
-session_start();
-if ($_SESSION['connected'] != true) {
-    header('location:adminConnexionPage.php');
-    exit();
-}
+    var_dump($_SESSION["connected"]);
+    var_dump($_SESSION);
+    
+    if (!isset($_SESSION["connected"]) || $_SESSION["connected"] !== true) {
+        header("location:adminConnectionPage.php");
+        exit;
+    }
+
+    echo '<pre>';
+    var_dump("c'est bon ca marche");
+    echo '</pre>';
 ?>
 
 <!DOCTYPE html>
