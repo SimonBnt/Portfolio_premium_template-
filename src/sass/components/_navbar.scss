@@ -1,19 +1,8 @@
 #navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    height: 50px;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-left: auto;
 
     @include respondTo(md) {
-        position: inherit;
-        height: inherit;
-        display: block;
+        margin-right: 2rem;
     }
 
     ul {
@@ -23,15 +12,6 @@
         align-items: center;
         gap: 0 2.5rem;
         
-        @include respondTo(sm) {
-            gap: 0 8rem;
-        }
-
-        @include respondTo(md) {
-            gap: 0 4rem;
-            margin-right: 4rem;
-        }
-
         li {
             transition: 0.3s;
 
@@ -49,13 +29,13 @@
 
                 @include respondTo(md) {
                     &:hover {
-                        color: #0671C4;
+                        color: $color1;
                         cursor: pointer;
                         transition: 0.3s;
                     }
 
                     &:active {
-                        color: #05406d;
+                        color: $color1;
                         transition: none;
                     }
                 }
@@ -65,14 +45,6 @@
 
                     @include respondTo(md) {
                         display: block;
-                    }
-                }
-
-                .navbarIcons {
-                    width: 32px;
-
-                    @include respondTo(md) {
-                        display: none;
                     }
                 }
             }

@@ -6,41 +6,118 @@ header {
     width: 100%;
     z-index: 1000;
     background-color: white;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-    color: #0671C4;
+    box-shadow: $boxShadow;
+    color: $color1;
+
+    #headerLogo {
+        display: none;
+
+        @include respondTo(sm) {
+            display: block;
+            left: 2rem;
+            top: 1.5rem;
+            position: absolute;
+            width: 8rem;
+            border-radius: 100%;
+            border: solid rgba(0, 0, 0, 0.4) 2px;
+            box-shadow: $boxShadow;
+        }
+    }
     
     #headerMainContentContainer {
-        padding: 1rem 1rem;
-        display: flex;
+        padding: 1rem 0.5rem;
         align-items: center;
+        display: flex;
 
-        #logo-colorMode-langSwitchContainer {
+        #logoContainer {
             display: flex;
             align-items: center;
             gap: 0 1rem;
-            width: 100%;
+            width: fit-content;
+            position: relative;
 
-            @include respondTo(md) {
-                margin-left: 4rem;
+            #brandName {
+                font-size: 0.9rem;
+
+                @include respondTo(tab) {
+                    font-size: 1rem;
+                }
             }
 
-            img {
-                width: 42px;
-                height: 42px;
+            @include respondTo(sm) {
+                margin-left: 10rem;
+            }
+
+            @include respondTo(md) {
+                margin-left: 12rem;
+            }
+
+            #pp {
+                width: 2.5rem;
+                height: 2.5rem;
                 border-radius: 100%;
                 object-fit: cover;
-                display: block;
+
+                @include respondTo(sm) {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                }
             }
 
             #colorModeContainer {
-                display: flex;
-                gap: 0 1rem;
+                position: absolute;
+                right: -2rem;
+                top: 50%;
+                transform: translateY(-50%);
                 
+                @include respondTo(sm) {
+                    right: -3rem;
+                }
+
                 .colorModeBtns {
                     .colorModeBtnImg {
-                        width: 32px;
-                        height: 32px;
                         transition: 0.3s;
+                        width: 1.5rem;
+
+                        @include respondTo(sm) {
+                            width: 2rem;
+                        }
+    
+                        &:hover {
+                            cursor: pointer;
+                            transition: 0.3s;
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+    
+                #darkModeBtn.noActive {
+                    display: none;
+                }
+    
+                #lightModeBtn.noActive {
+                    display: none;
+                }
+            }
+
+            #langSwitchContainer {
+                position: absolute;
+                right: -4rem;
+                top: 50%;
+                transform: translateY(-50%);
+
+                @include respondTo(sm) {
+                    right: -6rem;
+                }
+                
+                #languageIconContainer {
+                    #languageIcon {
+                        width: 1.5rem;
+                        transition: 0.3s;
+                        
+                        @include respondTo(sm) {
+                            width: 2rem;
+                        }
 
                         &:hover {
                             cursor: pointer;
@@ -50,65 +127,21 @@ header {
                     }
                 }
 
-                #darkModeBtn.noActive {
-                    display: none;
-                }
-
-                #lightModeBtn.noActive {
-                    display: none;
-                }
-            }
-
-            #langSwitchContainer {
-                position: relative;
-                
-                #languageIconContainer {
-                    padding: 0.25rem;
-                    border-radius: 0.5rem;
-                    border: solid 2px #333;
-                    gap: 0 0.5rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    #languageIcon {
-                        width: 32px;
-                        height: 32px;
-                    }
-
-                    #dropDownIcon {
-                        width: 14px;
-                        height: 14px;
-                        transition: 0.4s;
-
-                        @include respondTo(md) {
-                            &:hover {
-                                cursor: pointer;
-                                transform: translateY(2px);
-                                transition: 0.4s;
-                            }
-                        }
-                    }
-                }
-
                 #dropDownContainer {
-                    display: flex;
+                    display: none;
                     flex-direction: column;
                     justify-content: center;
                     position: absolute;
                     border: solid #333 2px;
-                    background-color: white;
-                    right: 0;
-                    left: 0;
-                    top: 4rem;
-                    border-radius: 0.5rem;
-                    gap: 0.5rem 0;
-                    transition: 0.4s;
-                    opacity: 0;
+                    background-color: #fff;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-radius: .5rem;
+                    gap: .5rem 0;
+                    padding: 0.5rem 1.5rem;
                     
                     &.open {
-                        opacity: 1;
-                        transition: 0.4s;
+                        display: flex;
                     }
 
                     a {
@@ -122,8 +155,8 @@ header {
 
                         img {
                             border-radius: 0;
-                            width: 24px;
-                            height: 24px;
+                            width: 1.5rem;
+                            height: 1.5rem;
                         }
                     }
                 }
@@ -131,7 +164,9 @@ header {
         }
     
         #burgerMenuMainContainer {
-            text-align: right;
+            @include respondTo(sm) {
+                right: 2rem;
+            }
 
             @include respondTo(md) {
                 display: none;
@@ -139,8 +174,12 @@ header {
     
             .burgerMenuImgContainer {
                 img {
-                    width: 32px;
-
+                    width: 1.5rem;
+                    
+                    @include respondTo(sm) {
+                        width: 2rem;
+                    }
+                    
                     @include respondTo(md) {
                         &:hover {
                             cursor: pointer;
@@ -153,7 +192,6 @@ header {
                 display: none;
             }
         }
-
     }
 
     #burgerMenu {
@@ -180,7 +218,7 @@ header {
 
                     @include respondTo(md) {
                         &:hover {
-                            color: #0671C4;
+                            color: $color1;
                             cursor: pointer;
                             transition: 0.3s;
                         }

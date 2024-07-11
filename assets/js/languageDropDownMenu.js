@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const dropDownIcon = document.getElementById("dropDownIcon")
+    const languageIcon = document.getElementById("languageIcon")
     const dropDownContainer = document.getElementById("dropDownContainer")
 
-    dropDownIcon.addEventListener("click", () => {
+    languageIcon.addEventListener("click", () => {
         if (!dropDownContainer.classList.contains("open")) {
             openLanguageDropDownMenu()
         } else {
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     document.addEventListener("click", (e) => {
-        if (!dropDownContainer.contains(e.target) && !dropDownIcon.contains(e.target)) {
+        if (!dropDownContainer.contains(e.target) && !languageIcon.contains(e.target)) {
             closeLanguageDropDownMenu()
         }
     })

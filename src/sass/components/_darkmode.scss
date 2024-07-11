@@ -1,31 +1,27 @@
 .dark {
     header {
-        background-color: #333;
-        color: mediumspringgreen;
+        background-color: black;
+        color: $color2;
+
+        #headerLogo {
+            filter: invert(100%);
+        }
 
         #headerMainContentContainer {
-            #logo-colorMode-langSwitchContainer {
-                #langSwitchContainer {
-                    border: solid mediumspringgreen 2px;
-                    border-radius: 0.5rem;
-
-                    #dropDownContainer {
-                        background-color: #333;
-                        border: solid #222 2px;
-
-                        span {
-                            color: white;
-                        }
-                    }
-                }
+            .colorModeBtnImg {
+                filter: invert(100%);
+            }
+            
+            #languageIcon {
+                filter: invert(100%);
             }
 
             #navbar {
-                background-color: #333;
+                background-color: black;
 
                 li {
                     a {
-                        color: mediumspringgreen;
+                        color: $color2;
     
                         .navbarIcons {
                             width: 32px;
@@ -35,7 +31,7 @@
                         .navbarTxt {
                             @include respondTo(md) {
                                 &:hover {   
-                                    color: mediumspringgreen;
+                                    color: $color2;
                                 }
                             }
                         }
@@ -54,10 +50,10 @@
 
         #burgerMenu {
             li {
-                border-bottom: mediumspringgreen solid 1px;
+                border-bottom: $color2 solid 1px;
 
                 a {
-                    color: mediumspringgreen;
+                    color: $color2;
                 }
             }
         }
@@ -65,144 +61,121 @@
 
     main {
         section {
-            color: black;
+            color: white;
 
             h4, strong {
-                color: mediumspringgreen !important;
+                color: $color2 !important;
             }
 
             .sectionTitle {
-                color: mediumspringgreen !important;
+                color: $color2 !important;
                 
                 &::after {
-                    background-color: mediumspringgreen !important;
+                    background-color: $color2 !important;
                 }
             }
 
             .cta {
                 color: black;
-                background-color: mediumspringgreen;
+                background-color: $color2;
             }
         }
 
         #homeSection {
-            background-color: #444;
+            background-color: #333;
 
-            #homeContentMainContainer {
-                #homeMainContentContainer {
-                    @include respondTo(md) {
-                        border: solid 8px mediumspringgreen !important;
-                    }
-    
-                    #titleContainer {
-                        h1 {
-                            color: mediumspringgreen !important;
-                        }
-                    }
-    
-                    #homeSpeechAndCtaContainer {
-                        h2 {
-                            color: mediumspringgreen !important;
-                        }
-        
-                        p {
-                            color: black;
-                        }
-        
-                        #homeCtaMainContainer {
-                            #homeCta {
-                                border: mediumspringgreen solid 2px !important;
-        
-                                p {
-                                    color: mediumspringgreen;
-                                }
-                            }
-                        }
-                    }
-    
+            #homeMainContentContainer {
+                @include respondTo(md) {
+                    border: solid 1px $color2 !important;
+                    background-color: rgba(200, 200, 200, 0.1) !important;
                 }
-                
-                #chatbotContainer {
-                    border: none;
-                    #chatbotOpener {
-                        #chatIconContainer {
-                            background-color: mediumspringgreen;
-                        }
+
+                #titleContainer {
+                    h1 {
+                        color: $color2 !important;
                     }
-                    
-                    #chatbotHeader {
-                        background-color: mediumspringgreen;
+                }
+
+                #homeSpeechAndCtaContainer {
+                    h2 {
+                        color: $color2 !important;
+                    }
+    
+                    p {
+                        color: white;
                         
-                        #chatbotCloser {
-                            background-color: mediumspringgreen;
-                            color: #333;
+                    }
+    
+                    #homeCtaMainContainer {
+                        #homeCta {
+                            border-right: solid $color2 2px !important;
+                            border-bottom: solid $color2 2px !important;
+                            background-color: $color2 !important;
+                            
+                            p {
+                                color: black !important;
 
-                            @include respondTo(md) {
                                 &:hover {
-                                    background-color: #333;
-                                    color: white;
+                                    color: white !important;
                                 }
                             }
                         }
                     }
-
-                    #chatContainer {
-                        // background-color: #555;
-                    }
                 }
+            }
 
-                #rightSidenavContainer {
-                    background-color: mediumspringgreen !important;
-                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            #rightSidenavContainer {
+                background-color: $color2 !important;
+            }
 
-                }
-    
-                #mouse {
-                    border: solid mediumspringgreen 2px;
-                    
-                    #scrollContainer {
-                        &::before {
-                            background-color: mediumspringgreen;
-                        }
+            #mouse {
+                border: solid $color2 2px;
+                
+                #scrollContainer {
+                    &::before {
+                        background-color: $color2;
                     }
                 }
             }
         }
 
         #aboutSection {
-            background-color: #555;
-            color: black;
+            background-color: #444;
 
             h2, h3, strong {
-                color: mediumspringgreen !important;
+                color: $color2 !important;
             }
 
             #skillsContainer {
                 .skills {
                     color: black !important;
-                    background-color: mediumspringgreen !important;
+                    background-color: $color2 !important;
                 }
             }
 
         }
 
         #projectsSection {
-            background-color: #444;
+            background-color: #333;
         }
 
         #contactSection {
-            background-color: #333;
+            background-color: #444;
 
             .formMainContainer {
-                background-color: #444;
-                border: solid mediumspringgreen 2px !important;
+                background-color: #333;
+                border: solid $color2 2px !important;
+
+                .formLogo {
+                    filter: invert(100%);
+                }
 
                 .formTitle {
-                    color: mediumspringgreen;
+                    color: $color2;
                 }
     
                 .formBtn {
-                    background: mediumspringgreen;
+                    background: $color2;
     
                     &:hover {
                         background-color: rgba(0, 0, 0, 1);
@@ -210,11 +183,12 @@
                 }
 
                 .formInput {
-                    border: solid 2px mediumspringgreen !important;
+                    border: solid 2px $color2 !important;
+                    background-color: #444;
                 }
 
                 button.formBtn {
-                    color: #444;
+                    color: #333;
                     transition: 0.6s;
 
                     &:hover {
@@ -229,20 +203,19 @@
             background-color: #444;
 
             h1 {
-                color: mediumspringgreen;
+                color: $color2;
             }
 
             .projectsGalleryMainsContainers {
                 h2 {
-                    color:mediumspringgreen;
+                    color:$color2;
                 }
 
                 .projectsGalleryContainers {
                     background-color: #333;
-                    border: solid #666 2px;
 
                     .projectsGalleryImgs {
-                        border-bottom: solid #666 2px;
+                        border-bottom: solid rgba(0, 0, 0, 0.2) 2px;
 
                         @include respondTo(md) {
                             border: 0;
@@ -253,8 +226,8 @@
                         color: white;
                         
                         .projectsGalleryCta {
-                            background-color: mediumspringgreen !important;
-                            color: #333 !important;
+                            background-color: $color2 !important;
+                            color: black !important;
 
                             border-bottom: solid #666 2px !important;
                             border-right: solid #666 2px !important;
@@ -265,13 +238,13 @@
                 @include respondTo(md) {
                     &.right {
                         .projectsGalleryImgs {
-                            border-left: solid #666 2px;
+                            border-left: solid rgba(0, 0, 0, 0.2) 2px;
                         }
                     }
     
                     &.left {
                         .projectsGalleryImgs {
-                            border-right: solid #666 2px;
+                            border-right: solid rgba(0, 0, 0, 0.2) 2px;
                         }
                     }
                 }
@@ -279,19 +252,19 @@
         }
 
         #map {
-            border-top: mediumspringgreen solid;
-            border-bottom: mediumspringgreen solid;
+            border-top: $color2 solid;
+            border-bottom: $color2 solid;
         }
     }
 
     footer {
         h2, #footerName {
-            color: mediumspringgreen !important;
+            color: $color2 !important;
         }
         
         #propertyContainer {
             a {
-                color: mediumspringgreen;
+                color: $color2;
             }
         }
     }

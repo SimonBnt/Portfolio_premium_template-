@@ -40,7 +40,7 @@ main {
                     bottom: -20px;
                     left: 50%;
                     transform: translateX(-50%);
-                    background-color: #0671C4;
+                    background-color: $color1;
                     width: 80px;
                     height: 4px;
                     border-radius: 0.5rem;
@@ -57,7 +57,7 @@ main {
                 }
 
                 strong {
-                    color: #0671C4;
+                    color: $color1;
                 }
             }
 
@@ -87,8 +87,8 @@ main {
                 overflow: hidden;
                 
                 @include respondTo(md) {
-                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-                    border: solid 8px #444;
+                    box-shadow: $boxShadow;
+                    border: solid 1px black;
                     border-radius: 0.5rem;
                     display: grid;
                     gap: 4rem 0;
@@ -96,6 +96,7 @@ main {
                     grid-template-rows: 1fr 1fr;
                     margin-top: 4rem;
                     height: 80%;
+                    background-color: rgba(0, 0, 0, 0.075);
                 }
 
                 #homeImg {
@@ -131,7 +132,7 @@ main {
                         }
 
                         h2 {
-                            color: #0671C4;
+                            color: $color1;
                             font-size: 1.25rem;
                         }
 
@@ -144,25 +145,39 @@ main {
                         margin-bottom: 2rem;
                         
                         #homeCta {
-                            border: solid #0671C4 2px;
+                            border-right: solid #333 2px;
+                            border-bottom: solid #333 2px;
+                            background-color: $color1;
                             border-radius: 0.5rem;
                             padding: 0.5rem;
                             text-transform: uppercase;
                             text-decoration: none;
-                            color: #0671C4;
+                            color: white;
                             display: flex;
                             align-items: center;
                             justify-content: center;
                             gap: 0 1rem;
                             width: fit-content;
                             margin: 0 auto;
+                            transition: 0.3s;
+                            box-shadow: $boxShadow;
 
                             @include respondTo(md) {
                                 margin: inherit;
+
+                                &:hover {
+                                    color: black;
+                                    
+                                    #homeCtaImg {
+                                        transform: translateX(4px);
+                                        transition: 0.3s;
+                                    }
+                                }
                             }
-                    
+                            
                             #homeCtaImg {
                                 width: 24px;
+                                transition: 0.3s;
                             }
                         }
                     }
@@ -177,7 +192,7 @@ main {
                 }
     
                 h1 {
-                    color: #0671C4;
+                    color: $color1;
                     text-transform: uppercase;
                     font-size: 1.5rem;
                     text-align: center;
@@ -243,7 +258,7 @@ main {
                     border-right: none;
                     border-top-left-radius: 0.25rem;
                     border-bottom-left-radius: 0.25rem;
-                    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+                    box-shadow: $boxShadow;
                 }
     
                 ul {
@@ -353,7 +368,7 @@ main {
                 }
 
                 strong {
-                    color: #0671C4;
+                    color: $color1;
                 }
             }
         }
@@ -369,7 +384,7 @@ main {
                     background-color: rgb(6, 113, 196, 0.2);
                     padding: 0.25rem;
                     border-radius: 0.25rem;
-                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+                    box-shadow: $boxShadow;
 
                     @include respondTo(sm) {
                         font-size: 1.15rem;
@@ -425,9 +440,8 @@ main {
                     text-align: center;
                 
                     img {
-                        border: #333 solid 4px ;
                         border-radius: 0.5rem;
-                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+                        box-shadow: $boxShadow;
                         width: 75%;
 
                         @include respondTo(md) {
@@ -457,7 +471,7 @@ main {
                         }
 
                         strong {
-                            color: #0671C4;
+                            color: $color1;
                         }
                     }
                 }
@@ -479,11 +493,10 @@ main {
             margin: 4rem 0 2rem 0;
             font-size: 1.5rem;
             text-transform: uppercase;
-            text-align: right;
-            color: #0671C4;
+            text-align: center;
+            color: $color1;
             
             @include respondTo(md) {
-                text-align: center;
                 margin-top: 6rem;
                 font-size: 2.5rem;
             }
@@ -495,7 +508,7 @@ main {
             gap: 4rem 0;
     
             @include respondTo(md) {
-                width: 90%;
+                width: 80%;
                 margin: 4rem auto;
                 border-radius: 0.5rem;
 
@@ -579,7 +592,7 @@ main {
                     display: flex;
                     flex-direction: column;
                     gap: 1rem 0;
-                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+                    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.8);
                     border-radius: 0.5rem;
                     text-align: center;
                     
@@ -616,14 +629,14 @@ main {
                             }
     
                             strong {
-                                color: #0671C4;
+                                color: $color1;
                             }
                         }
 
                         .projectsGalleryCta {
                             color: white;
                             text-decoration: none;
-                            background-color: #0671C4;
+                            background-color: $color1;
                             padding: 0.5rem;
                             border-bottom: solid #333 2px;
                             border-right: solid #333 2px;
@@ -631,13 +644,14 @@ main {
                             text-transform: uppercase;
                             transition: 0.3s;
                             margin: 0 auto 2rem auto;
+                            box-shadow: $boxShadow;
                             
                             @include respondTo(md) {
                                 margin: 0 auto;
 
                                 &:hover {
                                     transition: 0.3s;
-                                    color: #333;
+                                    color: black;
                                     transform: translateY(-2px);
                                 }
                             }

@@ -17,13 +17,13 @@
         color: white;
         text-decoration: none;
         text-transform: uppercase;
-        background-color: #0671C4;
+        background-color: $color1;
         border-right: solid 2px #333;
         border-bottom: solid 2px #333;
         border-radius: 0.25rem;
         padding: 0.75rem;
         transition: 0.3s;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+        box-shadow: $boxShadow;
 
         @include respondTo(sm) {
             font-size: 1.25rem;
@@ -35,7 +35,7 @@
             
             &:hover {
                 transition: 0.3s;
-                color: #333;
+                color: black;
             }
         }
     }

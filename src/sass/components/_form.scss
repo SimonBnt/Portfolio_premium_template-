@@ -3,18 +3,20 @@
     padding: 2rem 3rem 2rem 3rem;
     border-radius: 1rem;
     position: relative;
+    box-shadow: $boxShadow;
+    width: 320px;
+    padding: 2rem;
+
+    @include respondTo(tab) {
+        width: 360px;
+    }
 
     @include respondTo(sm) {
-        width: 280px;
-        padding: 2rem;
-    }
-
-    @include respondTo(lg) {
-        width: 400px;
-    }
-
-    @include respondTo(desktop1) {
         width: 450px;
+    }
+
+    @include respondTo(md) {
+        width: 560px;
     }
 
     .card {
@@ -70,11 +72,15 @@
                 font-size: 2rem;
                 font-weight: 600;
                 margin-bottom: 1rem;
-                color: #0671C4;
+                color: $color1;
             }
 
-            .formTitle + p {
-                font-size: calc(1rem * 0.8);
+            .formTxt {
+                font-size: 0.8rem;
+
+                @include respondTo(sm) {
+                    font-size: 1rem;
+                }
             }
         }
 
@@ -86,35 +92,39 @@
             .formItem {
                 position: relative;
 
-                .labelContainers {
-                    margin-bottom: 1rem;
+                label {
                     margin-left: 1rem;
-
-                    label {
-                        font-size: 0.75rem;
-                        color: #333;
-                        margin-bottom: 0.5rem;
-                    }
+                    font-size: 0.8rem;
                 }
 
                 .formInput {
                     border: solid 2px #333 !important;
                 }
-
-                input[type="text"], input[type="password"], input[type="email"] {
+                
+                input[type="text"], textarea, input[type="email"] {
                     border: none;
                     outline: none;
                     background: rgba(255, 255, 255, 0.3);
                     padding: 1rem 1.5rem;
                     padding-left: calc(1rem * 3.5);
-                    border-radius: 100px;
+                    border-radius: 1rem;
                     width: 100%;
                     transition: background 0.5s;
+                    box-shadow: $boxShadow;
     
                     &:focus {
                         background: white;
                     }
                 } 
+
+                textarea {
+                    height: 100px;
+                    border-radius: 1rem;
+                    padding-top: 2.5rem;
+                    resize: none;
+                    scrollbar-width: thin;
+                    scrollbar-color: #333 #eee;
+                }
     
                 .inputContainers {
                     position: relative;
@@ -130,31 +140,25 @@
 
                     .itemIcon {
                         position: absolute;
-                        top: 0.8rem;
+                        top: 50%;
+                        transform: translateY(-50%);
                         left: 1rem;
                         font-size: 1.5rem;
                         opacity: 0.5;
                     }
                     
-                    .validation--pw {
+                    .nameValidation, .emailValidation, .messageValidation {
+                        position: absolute;
+                        font-size: 0.75rem;
+                        color: mediumseagreen;
                         position: absolute;
                         top: 50%;
                         transform: translateY(-50%);
+                        right: 1rem;
                         padding: 0.5rem;
-                        right: 2.5rem !important;
                     }
                 }
 
-                .nameValidation, .emailValidation, .messageValidation {
-                    position: absolute;
-                    font-size: 0.75rem;
-                    color: mediumseagreen;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 1rem;
-                    padding: 0.5rem;
-                }
                 
                 .emailError, .nameError, .messageError {
                     font-size: 0.75rem;
@@ -164,7 +168,7 @@
             }
 
             .formBtn {
-                background: #0671C4;
+                background: $color1;
                 color: white;
                 padding: 1rem;
                 border-radius: 100px;
@@ -173,11 +177,24 @@
                 transition: background 0.5s;
                 font-size: 1rem;
                 font-weight: bolder;
+                box-shadow: $boxShadow;
 
                 &:hover {
                     background-color: rgba(0, 0, 0, 1);
                     cursor: pointer;
                 }
+            }
+
+            #reCaptcha {
+                margin: 0 auto;
+            }
+            
+            #formSubmitValidationMessage {
+                color: mediumseagreen;
+            }
+
+            #formSubmitErrorMessage {
+                color: indianred;
             }
         }
     }

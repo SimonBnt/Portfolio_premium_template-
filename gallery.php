@@ -1,5 +1,26 @@
+<?php
+    $lang = isset($_GET["lang"]) ? $_GET["lang"] : "en"; 
+
+
+    $lang = in_array($lang, ["en", "fr", "es", "de"]) ? $lang : "en";
+
+    $translation_file = __DIR__ . "/assets/translations/" . $lang . ".php";
+
+
+    if (file_exists($translation_file)) {
+        $translations = require $translation_file;
+    } else {
+        $translations = [];
+    }
+
+    if (!isset($_GET["lang"])) {
+        header("Location: ?lang=$lang");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,94 +53,127 @@
     
     <link rel="stylesheet" href="assets/css/styles.min.css">
 
-    <!-- link Leaflet -->
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
-    
-    <!-- scipt Leaflet -->
-
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-
     <!-- script js -->
 
     <script src="assets/js/burgermenu.js" defer></script>
-    <script src="assets/js/map.js" defer></script>
     <script src="assets/js/persistantColorMode.js" defer></script>
-    <script src="assets/js/formValidation.js" defer></script>
+    <script src="assets/js/languageDropDownMenu.js" defer></script>
 </head>
 <body>
     <header>
+        <img src="assets/img/logo.jpg" alt="logo" id="headerLogo">
         <div id="headerMainContentContainer">
-            <div id="logo-colorModeContainer">
+            <div id="logoContainer">
 
                 <!-- logo -->
 
-                <img id="logo" src="https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Portrait/logo">
-                <p>your name</p>
+                <img id="pp" src="https://images.pexels.com/photos/3777946/pexels-photo-3777946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="<?= $translations["portraitAlt"]; ?>">
+                <div id="brandName"><?= $translations["brandName"]; ?></div>
 
                 <!-- color mode -->
 
                 <div id="colorModeContainer">
-                    <div id="darkModeBtn" class="colorModeBtns darkMode active" title="Dark mod"><img class="colorModeBtnImg active" src="https://cdn-icons-png.flaticon.com/128/4129/4129208.png" alt="Moon icon"></div> 
-                    <div id="lightModeBtn" class="colorModeBtns lightMode noActive" title="Light mod"><img class="colorModeBtnImg noActive" src="https://cdn-icons-png.flaticon.com/128/54/54455.png" alt="Sun icon"></div>
+                    <div id="darkModeBtn" class="colorModeBtns darkMode active" title="<?= $translations["darkModTitle"]; ?>"><img class="colorModeBtnImg active" src="https://cdn-icons-png.flaticon.com/128/4129/4129208.png" alt="<?= $translations["moonIconAlt"]; ?>"></div> 
+                    <div id="lightModeBtn" class="colorModeBtns lightMode noActive" title="<?= $translations["lightModTitle"]; ?>"><img class="colorModeBtnImg noActive" src="https://cdn-icons-png.flaticon.com/128/54/54455.png" alt="<?= $translations["sunIconAlt"]; ?>"></div>
+                </div>
+                
+                <!-- language switch -->
+
+                <div id="langSwitchContainer">
+                    <div id="languageIconContainer">
+                        <img src="https://cdn-icons-png.flaticon.com/128/5403/5403606.png" alt="<?= $translations["languageIconAlt"]; ?>" id="languageIcon" title="<?= $translations["languageChoiceTitle"]; ?>">
+                    </div>
+                    <div id="dropDownContainer">
+                        <?php if (isset($_GET["lang"]) && $_GET["lang"] !== "en"): ?>
+                            <a href="?lang=en#gallery.php" title="<?= $translations["switchToEnglishTitle"]; ?>">
+                                <img src="https://cdn-icons-png.flaticon.com/128/555/555417.png" alt="<?= $translations["enFlagIconAlt"]; ?>" id="frFlag">
+                                <span>EN</span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (isset($_GET["lang"]) && $_GET["lang"] !== "fr"): ?>
+                            <a href="?lang=fr" title="<?= $translations["switchToFrenchTitle"]; ?>">
+                                <img src="https://cdn-icons-png.flaticon.com/128/4060/4060248.png" alt="<?= $translations["frFlagIconAlt"]; ?>" id="frFlag">
+                                <span>FR</span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (isset($_GET["lang"]) && $_GET["lang"] !== "es"): ?>
+                            <a href="?lang=es" title="<?= $translations["switchToSpanishTitle"]; ?>">
+                                <img src="https://cdn-icons-png.flaticon.com/128/4060/4060260.png" alt="<?= $translations["esFlagIconAlt"]; ?>" id="esFlag">
+                                <span>ES</span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (isset($_GET["lang"]) && $_GET["lang"] !== "de"): ?>
+                            <a href="?lang=de" title="<?= $translations["switchToGermanTitle"]; ?>">
+                                <img src="https://cdn-icons-png.flaticon.com/128/555/555613.png" alt="<?= $translations["deFlagIconAlt"]; ?>" id="deFlag">
+                                <span>DE</span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
+
+            <!-- Navbar -->
+
             <div id="navbar">
                 <ul>
                     <li class="quickAccess">
-                        <a href="index.html#homeSection" title="Home section quick access"><img class="navbarIcons" src="https://cdn-icons-png.flaticon.com/128/73/73417.png" alt=""><p class="navbarTxt">home</p></a>
+                        <a href="index.php?lang=<?= $lang ?>#homeSection" title="<?= $translations["homeQuickAcessTitle"]; ?>"><p class="navbarTxt"><?= $translations["home"]; ?></p></a>
                     </li>
                     <li class="quickAccess">
-                        <a href="index.html#aboutSection" title="About section quick access"><img class="navbarIcons" src="https://cdn-icons-png.flaticon.com/128/3817/3817173.png" alt=""><p class="navbarTxt">about</p></a>
+                        <a href="index.php?lang=<?= $lang ?>#aboutSection" title="<?= $translations["aboutQuickAcessTitle"]; ?>"><p class="navbarTxt"><?= $translations["about"]; ?></p></a>
                     </li>
                     <li class="quickAccess">
-                        <a href="index.html#projectsSection" title="Projects section quick access"><img class="navbarIcons" src="https://cdn-icons-png.flaticon.com/128/6002/6002182.png" alt=""><p class="navbarTxt">projects</p></a>
+                        <a href="index.php?lang=<?= $lang ?>#projectsSection" title="<?= $translations["projectsQuickAcessTitle"]; ?>"><p class="navbarTxt"><?= $translations["projects"]; ?></p></a>
                     </li>
                     <li class="quickAccess">
-                        <a href="index.html#contactSection" title="Contact section quick access"><img class="navbarIcons" src="https://cdn-icons-png.flaticon.com/128/1250/1250663.png" alt=""><p class="navbarTxt">contact</p></a>
+                        <a href="index.php?lang=<?= $lang ?>#contactSection" title="<?= $translations["contactQuickAcessTitle"]; ?>"><p class="navbarTxt"><?= $translations["contact"]; ?></p></a>
                     </li>
                 </ul>
             </div>
+
+            <!-- Burger Menu -->
+
             <div id="burgerMenuMainContainer">
                 <div id="burgerMenuOpenerContainer" class="burgerMenuImgContainer">
-                    <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" alt="Burger menu icone">
+                    <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" alt="<?= $translations["bmIconAlt"]; ?>">
                 </div>
                 <div id="burgerMenuCloserContainer" class="burgerMenuImgContainer">
-                    <img src="https://cdn-icons-png.flaticon.com/128/6423/6423881.png" alt="Burger menu close icone">
+                    <img src="https://cdn-icons-png.flaticon.com/128/6423/6423881.png" alt="<?= $translations["bmCloserIconAlt"]; ?>">
                 </div>
             </div>
         </div>
         <div id="burgerMenu">
             <ul>
                 <li class="quickAccess">
-                    <a href="index.html#homeSection" title="Home section quick access">home</a>
+                    <a href="index.php?lang=<?= $lang ?>#homeSection" title="<?= $translations["homeQuickAcessTitle"]; ?>"><?= $translations["home"]; ?></a>
                 </li>
                 <li class="quickAccess">
-                    <a href="index.html#aboutSection" title="About section quick access">about</a>
+                    <a href="index.php?lang=<?= $lang ?>#aboutSection" title="<?= $translations["aboutQuickAcessTitle"]; ?>"><?= $translations["about"]; ?></a>
                 </li>
                 <li class="quickAccess">
-                    <a href="index.html#projectsSection" title="Projects section quick access">projects</a>
+                    <a href="index.php?lang=<?= $lang ?>#projectsSection" title="<?= $translations["projectsQuickAcessTitle"]; ?>"><?= $translations["projects"]; ?></a>
                 </li>
                 <li class="quickAccess">
-                    <a href="index.html#contactSection" title="Contact section quick access">contact</a>
+                    <a href="index.php?lang=<?= $lang ?>#contactSection" title="<?= $translations["contactQuickAcessTitle"]; ?>"><?= $translations["contact"]; ?></a>
                 </li>
             </ul>
         </div>
     </header>
     <main>
         <section id="gallery">
-            <h1>gallery</h1>
+            <h1><?= $translations["galleryH1"]; ?></h1>
             <div id="galleryMainContainer">
     
                 <!-- project 1 -->
     
                 <div class="projectsGalleryMainsContainers right">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject1H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1107659862634147922/MrDisco_philosophie_grec_athene_1920x1280_d354458b-c7d3-4fdc-98c2-54a1c601d1b6.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img1.png" alt="<?= $translations["galleryProject1ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject1Description"]; ?></p>
+                            <!-- <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p> -->
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -127,12 +181,12 @@
                 <!-- project 2 -->
     
                 <div class="projectsGalleryMainsContainers left">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject2H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1106254530947072070/MrDisco_philosophie_grec_athene_b9aa5efe-ed88-4b04-9425-9b3373d03d02.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img2.png" alt="<?= $translations["galleryProject2ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject2Description"]; ?></p>
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -140,12 +194,12 @@
                 <!-- project 3 -->
     
                 <div class="projectsGalleryMainsContainers right">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject3H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1106254536118648873/MrDisco_philosophie_grec_athene_c1a4ff3d-2e3b-4273-bbcf-33b5f35859d4.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img3.png" alt="<?= $translations["galleryProject3ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject3Description"]; ?></p>
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -153,12 +207,12 @@
                 <!-- project 4 -->
     
                 <div class="projectsGalleryMainsContainers left">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject4H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1106254541533483138/MrDisco_philosophie_grec_athene_a6153f58-8ac5-4fc4-be57-1cb8b0f8b013.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img4.png" alt="<?= $translations["galleryProject4ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject4Description"]; ?></p>
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -166,12 +220,12 @@
                 <!-- project 5 -->
     
                 <div class="projectsGalleryMainsContainers right">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject5H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1107659862634147922/MrDisco_philosophie_grec_athene_1920x1280_d354458b-c7d3-4fdc-98c2-54a1c601d1b6.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img1.png" alt="<?= $translations["galleryProject1ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject5Description"]; ?></p>
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -179,12 +233,12 @@
                 <!-- project 6 -->
     
                 <div class="projectsGalleryMainsContainers left">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject6H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1106254530947072070/MrDisco_philosophie_grec_athene_b9aa5efe-ed88-4b04-9425-9b3373d03d02.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img2.png" alt="<?= $translations["galleryProject2ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject6Description"]; ?></p>
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -192,12 +246,12 @@
                 <!-- project 7 -->
     
                 <div class="projectsGalleryMainsContainers right">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject7H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1106254536118648873/MrDisco_philosophie_grec_athene_c1a4ff3d-2e3b-4273-bbcf-33b5f35859d4.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img3.png" alt="<?= $translations["galleryProject3ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject7Description"]; ?></p>
+                            <a href="" title="<?= $translations["galleryProjectCtaTitle"]; ?>" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -205,12 +259,12 @@
                 <!-- project 8 -->
     
                 <div class="projectsGalleryMainsContainers left">
-                    <h2 class="projectsGalleryTitles">Lorem, ipsum dolor.</h2>
+                    <h2 class="projectsGalleryTitles"><?= $translations["galleryProject8H2"]; ?></h2>
                     <div class="projectsGalleryContainers">
-                        <img src="https://media.discordapp.net/attachments/1092724733004480592/1106254541533483138/MrDisco_philosophie_grec_athene_a6153f58-8ac5-4fc4-be57-1cb8b0f8b013.png?width=702&height=702" alt="" class="projectsGalleryItems projectsGalleryImgs">
+                        <img src="assets/img/img4.png" alt="<?= $translations["galleryProject4ImgAlt"]; ?>" class="projectsGalleryItems projectsGalleryImgs">
                         <div class="projectsGalleryCtaDescriptionContainer">
-                            <p class="projectsGalleryItems projectsGalleryDescriptions">Lorem ipsum <strong>dolor</strong> sit amet <strong>consectetur</strong> adipisicing elit. <strong>Consequatur</strong>, a.</p>
-                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta">do something here !</a>
+                            <p class="projectsGalleryItems projectsGalleryDescriptions"><?= $translations["galleryProject8Description"]; ?></p>
+                            <a href="" title="Click here to ''" target="_blank" class="projectsGalleryCta"><?= $translations["galleryProjectCta"]; ?></a>
                         </div>
                     </div>
                 </div>
@@ -220,29 +274,29 @@
     <footer>
         <div id="footerMainContainer">
             <div id="footerBioContainer">
-                <p id="footerName">your name</p>
-                <p id="footerBio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis blanditiis eveniet nisi.</p>
+                <p id="footerName"><?= $translations["footerName"]; ?></p>
+                <p id="footerBio"><?= $translations["footerBio"]; ?></p>
             </div>
             <div id="footerSocialContainer">
-                <h2>social</h2>
+                <h2><?= $translations["footerH2"]; ?></h2>
                 <ul>
                     <li>
-                        <a href="#" target="_blank" title="Click to access my Linkedin profile" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128219.png" alt="Linkedin icon"></a>
+                        <a href="#" target="_blank" title="<?= $translations["linkedinTitle"]; ?>" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128219.png" alt="<?= $translations["linkedinAlt"]; ?>"></a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" title="Click to access my Facebook profile" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128208.png" alt="Facebook icon"></a>
+                        <a href="#" target="_blank" title="<?= $translations["facebookTitle"]; ?>" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128208.png" alt="<?= $translations["facebookAlt"]; ?>"></a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" title="Click to access my Instagram profile" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/717/717392.png" alt="Instagram icon"></a>
+                        <a href="#" target="_blank" title="<?= $translations["instagramTitle"]; ?>" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/717/717392.png" alt="<?= $translations["instagramAlt"]; ?>"></a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" title="Click to access my Twitter profile" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128212.png" alt="Twitter icon"></a>
+                        <a href="#" target="_blank" title="<?= $translations["xTitle"]; ?>" rel="noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/14417/14417460.png" alt="<?= $translations["xAlt"]; ?>"></a>
                     </li>
                 </ul>
             </div>
         </div>
         <div id="propertyContainer">
-            <p>Made by <a href="https://www.simonbenet.com/enVersion.html" target="_blank" title="Direct link to Simon Bénet portfolio">Simon Bénet</a> in 2023</p>
+            <p><?= $translations["madeBy"]; ?><a href="https://www.simonbenet.com/enVersion.html" target="_blank" title="">Simon Bénet</a> <?= $translations["year"]; ?></p>
         </div>
     </footer>
 </body>
